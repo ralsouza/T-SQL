@@ -138,8 +138,8 @@ SELECT @outercount AS 'RowCount';
 
 
 /*
-Usando o parâmetro OUTPUT - https://msdn.microsoft.com/pt-br/library/ms188001(v=sql.120).aspx
-O exemplo a seguir usa um parâmetro OUTPUT para armazenar o conjunto de resultados gerado pela instrução SELECT no parâmetro @SQLString.Duas instruções SELECT que usam o valor do parâmetro OUTPUT são então executadas. 
+Usando o parÃ¢metro OUTPUT - https://msdn.microsoft.com/pt-br/library/ms188001(v=sql.120).aspx
+O exemplo a seguir usa um parÃ¢metro OUTPUT para armazenar o conjunto de resultados gerado pela instruÃ§Ã£o SELECT no parÃ¢metro @SQLString.Duas instruÃ§Ãµes SELECT que usam o valor do parÃ¢metro OUTPUT sÃ£o entÃ£o executadas. 
 */
 USE AdventureWorks2012;
 GO
