@@ -48,15 +48,15 @@ ADD CONSTRAINT FK_Products_Categories FOREIGN KEY(categoryid)
 REFERENCES Production.Categories (categoryid)
 GO
 
---To find a database’s foreign keys, you can query the sys.foreign_keys table
+--To find a databaseâ€™s foreign keys, you can query the sys.foreign_keys table
 SELECT *
 FROM sys.foreign_keys
 WHERE name = 'FK_Products_Categories';
 
---Criar índices não clusterizados em colunas com chaves estrangeiras, pode melhorar as consultas com Join.
---Isto pode ajudar o SQL Server a resolver o join mais rapidamente se houver um índice em uma grande tabela.
+--Criar Ã­ndices nÃ£o clusterizados em colunas com chaves estrangeiras, pode melhorar as consultas com Join.
+--Isto pode ajudar o SQL Server a resolver o join mais rapidamente se houver um Ã­ndice em uma grande tabela.
 
---Com uma restrição de verificação, você declara que os valores de uma coluna são restritos de alguma forma
+--Com uma restriÃ§Ã£o de verificaÃ§Ã£o, vocÃª declara que os valores de uma coluna sÃ£o restritos de alguma forma
 ALTER TABLE Production.Products WITH CHECK
 ADD CONSTRAINT CHK_Products_unitprice
 CHECK (unitprice>=0);
