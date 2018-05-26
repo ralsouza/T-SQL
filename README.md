@@ -1,1 +1,1 @@
-# Studies to exam 70-461: Querying Microsoft SQL Server 2012
+# Study material for certification exams, among others for day-to-day with SQL Server.
