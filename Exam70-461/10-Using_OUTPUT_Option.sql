@@ -5,7 +5,7 @@ GO
 --In this exercise, you use the OUTPUT clause in an UPDATE statement and compare columns before and after the change
 
 --1. You need to apply an update to products in category 1 that are supplied by supplier 16
---   You first issue the following query against the Production.Products table to examine the products that you’re about to update
+--   You first issue the following query against the Production.Products table to examine the products that youâ€™re about to update
 SELECT productid, productname, unitprice
 FROM Production.Products
 WHERE categoryid = 1
@@ -87,7 +87,7 @@ INSERT INTO Sales.MyOrdersArchive(orderid,custid,empid,orderdate)
 SELECT *
 FROM Sales.MyOrdersArchive;
 
---4. When you’re done, run the following code for cleanup
+--4. When youâ€™re done, run the following code for cleanup
 IF OBJECT_ID('Sales.MyOrdersArchive') IS NOT NULL
 	DROP TABLE Sales. MyOrdersArchive;
 IF OBJECT_ID('Sales.MyOrders') IS NOT NULL
