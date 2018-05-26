@@ -1,7 +1,7 @@
 USE TSQL2012;
 GO
 --Test Github
---Here’s an example you can use to defne a sequence that will help generate order IDs
+--Hereâ€™s an example you can use to defne a sequence that will help generate order IDs
 CREATE SEQUENCE Sales.SeqOrderIDs AS INT
 	MINVALUE 1
 	CYCLE; -- Note that in real-life cases, normally you would not allow a sequence generating order IDs to cycle
@@ -31,8 +31,8 @@ CREATE TABLE Sales.MyOrders
 	orderdate DATE NOT NULL
 );
 
---Observe that this time the orderid column doesn’t have an IDENTITY property
---Here’s an example of using the NEXT VALUE FOR function in an INSERT VALUES statement that inserts three rows into the table
+--Observe that this time the orderid column doesnâ€™t have an IDENTITY property
+--Hereâ€™s an example of using the NEXT VALUE FOR function in an INSERT VALUES statement that inserts three rows into the table
 INSERT INTO Sales.MyOrders(orderid, custid, empid, orderdate) VALUES
 	(NEXT VALUE FOR Sales.SeqOrderIDs, 1, 2, '20120620'),
 	(NEXT VALUE FOR Sales.SeqOrderIDs, 1, 3, '20120620'),
@@ -115,7 +115,7 @@ value was still set to the lowest value in the type (-2147483648 in the case of 
 ALTER SEQUENCE dbo.Seq1 RESTART WITH 2147483647;
 --Then run the following code twice
 SELECT NEXT VALUE FOR dbo.Seq1;
---You frst get 2147483647, and then get -2147483648—not 1—because the minimum sequence is defned as -2147483648
+--You frst get 2147483647, and then get -2147483648â€”not 1â€”because the minimum sequence is defned as -2147483648
 
 --3. If you want to create a sequence that cycles and supports only positive values, you need to set the MINVALUE property to 1. Run the following code to achieve this
 IF OBJECT_ID('dbo.Seq1') IS NOT NULL 
