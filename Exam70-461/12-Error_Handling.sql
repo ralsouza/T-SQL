@@ -176,8 +176,8 @@ GO
 SELECT XACT_STATE() AS 'XACT_STATE',@@TRANCOUNT AS 'TRANCOUNT';
 
 
-/*O exemplo a seguir usa XACT_STATE no bloco CATCH de uma construÁ„o TRYÖCATCH para determinar se uma transaÁ„o ser· confirmada ou revertida. 
-  Como SET XACT_ABORT È ON, o erro de violaÁ„o de restriÁ„o faz a transaÁ„o entrar em um estado n„o confirm·vel.
+/*O exemplo a seguir usa XACT_STATE no bloco CATCH de uma constru√ß√£o TRY‚Ä¶CATCH para determinar se uma transa√ß√£o ser√° confirmada ou revertida. 
+  Como SET XACT_ABORT √© ON, o erro de viola√ß√£o de restri√ß√£o faz a transa√ß√£o entrar em um estado n√£o confirm√°vel.
   URL: https://docs.microsoft.com/pt-br/sql/t-sql/functions/xact-state-transact-sql
   */
 
