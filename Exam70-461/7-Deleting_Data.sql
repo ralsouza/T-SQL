@@ -41,7 +41,7 @@ END
 --DELETE Based on a Join
 /*
 As an example, suppose that you want to delete all orders placed by customers from the United States. 
-The country is a property of the customer—not the order. So even though the target for the DELETE statement is the Sales.MyOrders table, 
+The country is a property of the customerâ€”not the order. So even though the target for the DELETE statement is the Sales.MyOrders table, 
 you need to examine the country column in the related customer row in the Sales.MyCustomers table.
 You can achieve this by using a DELETE statement based on a join, as follows.
 */
@@ -62,10 +62,10 @@ WHERE EXISTS
 --DELETE Using Table Expressions
 /*
 Suppose that you want to delete the 100 oldest orders (based on orderdate, orderid ordering). 
-The DELETE statement supports using the TOP option directly, but it doesn’t support an ORDER BY clause. 
-So you don’t have any control over which rows the TOP flter will pick. As a workaround, you can defne a table expression based on a SELECT query
+The DELETE statement supports using the TOP option directly, but it doesnâ€™t support an ORDER BY clause. 
+So you donâ€™t have any control over which rows the TOP flter will pick. As a workaround, you can defne a table expression based on a SELECT query
 with the TOP option and an ORDER BY clause controlling which rows get fltered. 
-Then you can issue a DELETE against the table expression. Here’s how the complete code looks.
+Then you can issue a DELETE against the table expression. Hereâ€™s how the complete code looks.
 */
 WITH OldestOrders AS
 (
