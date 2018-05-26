@@ -77,7 +77,7 @@ WHERE C.country = N'Norway';
 
 --***** NONDETERMINISTIC UPDATE *****
 --The statement is nondeterministic when multiple source rows match one target row
---Unfortunately, in such a case, SQL Server doesn’t generate an error or even a warning
+--Unfortunately, in such a case, SQL Server doesnâ€™t generate an error or even a warning
 --Instead of using the nonstandard UPDATE statement based on joins, you can use the standard MERGE statement
 
 --***** UPDATE AND TABLE EXPRESSIONS
@@ -86,7 +86,7 @@ WHERE C.country = N'Norway';
 --to be modifed and with what data before you actually apply the update
 
 --Suppose that you need to modify the country and postalcode columns of the Sales.MyCustomers table with the data from the respective rows from the Sales.Customers table
---But you want to be able to run the code as a SELECT statement first in order to see the data that you’re about to update
+--But you want to be able to run the code as a SELECT statement first in order to see the data that youâ€™re about to update
 --You could first write a SELECT query, as follows:
 SELECT TGT.custid,
 	TGT.country AS tgt_country, SRC.country AS src_country,
@@ -241,4 +241,4 @@ UPDATE C
 --You can use the inner SELECT query with the join both before and after issuing the actual update to ensure that you achieved the desired result
 
 --***** DELETING DATA *****
-Página 356
+PÃ¡gina 356
