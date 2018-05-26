@@ -1,6 +1,6 @@
 USE TSQL2012;
 GO
-
+--Test Github
 --Here’s an example you can use to defne a sequence that will help generate order IDs
 CREATE SEQUENCE Sales.SeqOrderIDs AS INT
 	MINVALUE 1
