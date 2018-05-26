@@ -21,11 +21,11 @@ CREATE TABLE Sales.MyOrders
 --Specifying the target column names after the table name is optional but considered a best practice
 INSERT INTO Sales.MyOrders(custid, empid, orderdate, shipcountry, freight)
 	VALUES(3, 17, DEFAULT, N'USA', 30.00);
---If you donít specify a value for a column, SQL Server will first check whether the column gets its value automatically
---If thatís not the case, SQL Server will generate an error
+--If you don‚Äôt specify a value for a column, SQL Server will first check whether the column gets its value automatically
+--If that‚Äôs not the case, SQL Server will generate an error
 --If you do want to provide your own value instead of letting the IDENTITY property do it for you, you need to first turn on a session option called IDENTITY_INSERT, as follows:
 ---SET IDENTITY_INSERT <table> ON;
---When youíre done, you need to remember to turn it off
+--When you‚Äôre done, you need to remember to turn it off
 
 --***** INSERT SELECT *****
 --The INSERT SELECT statement inserts the result set returned by a query into the specifed target table
@@ -41,7 +41,7 @@ INSERT INTO Sales.MyOrders(orderid, custid, empid, orderdate, shipcountry, freig
 SET IDENTITY_INSERT Sales.MyOrders OFF;
 --The code turns on the IDENTITY_INSERT option against Sales.MyOrders in order to use the original order IDs and not let the IDENTITY property generate those
 --In certain conditions, the INSERT SELECT statement can beneft from minimal logging, which could result in improved performance compared to a fully logged operation
---For details, see ìThe Data Loading Performance Guideî: https://technet.microsoft.com/en-us/library/dd425070(v=sql.100).aspx
+--For details, see ‚ÄúThe Data Loading Performance Guide‚Äù: https://technet.microsoft.com/en-us/library/dd425070(v=sql.100).aspx
 
 --***** INSERT EXEC *****
 --With the INSERT EXEC statement, you can insert the result set (or sets) returned by a dynamic batch or a stored procedure into the specifed target table
@@ -71,7 +71,7 @@ FROM Sales.MyOrders;
 --The statement creates the target table based on the defInition of the source and inserts the result rows from the query into that table
 
 --The following code shows an example for a SELECT INTO statement that queries the Sales
---Orders table returning orders shipped to Norway, creates a target table called Sales.MyOrders, and stores the queryís result in the target table
+--Orders table returning orders shipped to Norway, creates a target table called Sales.MyOrders, and stores the query‚Äôs result in the target table
 IF OBJECT_ID('Sales.MyOrders', 'U') IS NOT NULL DROP TABLE Sales.MyOrders;
 
 SELECT orderid, custid, orderdate, shipcountry, freight
