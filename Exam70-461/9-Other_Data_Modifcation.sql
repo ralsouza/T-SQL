@@ -19,7 +19,7 @@ GO
 TRUNCATE TABLE Sales.MyOrders;
 ALTER SEQUENCE Sales.SeqOrderIDs RESTART WITH 1;
 
---If the table and sequence don’t exist in the database, use the following code to create them
+--If the table and sequence donâ€™t exist in the database, use the following code to create them
 IF OBJECT_ID('Sales.MyOrders') IS NOT NULL 
 	DROP TABLE Sales.MyOrders;
 
@@ -45,13 +45,13 @@ CREATE TABLE Sales.MyOrders
 
 --Suppose that you need to define a stored procedure that accepts as input parameters attributes of an order
 --If an order with the input order ID already exists in the Sales.MyOrders table, you need to update the row, setting the values of the nonkey columns to the new ones
---If the order ID doesn’t exist in the target table, you need to insert a new row
+--If the order ID doesnâ€™t exist in the target table, you need to insert a new row
 --The first things to identify in a MERGE statement are the target and the source tables
---The target is easy it’s the Sales.MyOrders
---The source is supposed to be a table or table expression, but in this case, it’s just a set of input parameters making an order
+--The target is easy itâ€™s the Sales.MyOrders
+--The source is supposed to be a table or table expression, but in this case, itâ€™s just a set of input parameters making an order
 --To turn the inputs into a table expression, you can use one of two options: a SELECT without a FROM clause or the VALUES table value constructor
 
---Here’s an example for a query against a table expression defined from input variables based on a SELECT statement without a FROM clause
+--Hereâ€™s an example for a query against a table expression defined from input variables based on a SELECT statement without a FROM clause
 DECLARE
 	@orderid   AS INT  = 1,
 	@custid    AS INT  = 1,
@@ -62,7 +62,7 @@ SELECT *
 FROM (SELECT @orderid, @custid, @empid, @orderdate )
 	  AS SRC( orderid, custid, empid, orderdate );
 
---Here’s an example of doing the same thing with the VALUES table value constructor
+--Hereâ€™s an example of doing the same thing with the VALUES table value constructor
 DECLARE
 	@orderid AS INT = 1,
 	@custid  AS INT = 1,
@@ -100,13 +100,13 @@ ID. When a match is found (the source order ID is matched by a target order ID),
 statement performs an UPDATE action that updates the values of the nonkey columns in the
 target to those from the respective source row.
 
-When a match isn’t found (the source order ID is not matched by a target order ID), the
+When a match isnâ€™t found (the source order ID is not matched by a target order ID), the
 MERGE statement inserts a new row with the source order information into the target.
 */
 
 /*
 IMPORTANT Avoiding MERGE Conflicts
-Suppose that a certain key K doesn’t yet exist in the target table. Two processes, P1 and P2,
+Suppose that a certain key K doesnâ€™t yet exist in the target table. Two processes, P1 and P2,
 run a MERGE statement such as the previous one at the same time with the same source
 key K. It is normally possible for the MERGE statement issued by P1 to insert a new row
 with the key K between the points in time when the MERGE statement issued by P2 checks
@@ -117,18 +117,18 @@ shown in the previous statement.
 
 /*
 TIP - MERGE Requires Only One Clause at Minimum
-The MERGE statement doesn’t require you to always specify the WHEN MATCHED and WHEN NOT MATCHED clauses;
+The MERGE statement doesnâ€™t require you to always specify the WHEN MATCHED and WHEN NOT MATCHED clauses;
 at a minimum, you are required to specify only one clause, and it could be any of the three WHEN clauses. 
 For example, a MERGE statement that specifes only the WHEN MATCHED clause is a standard alternative to an UPDATE statement based on a join, 
-which isn’t standard.
+which isnâ€™t standard.
 
-USING clause where you define the source for the MERGE operation is that it’s designed like the FROM clause in a SELECT statement
+USING clause where you define the source for the MERGE operation is that itâ€™s designed like the FROM clause in a SELECT statement
 This means that you can define table operators like JOIN, APPLY, PIVOT, and UNPIVOT; and use table expressions like
 derived tables, CTEs, views, inline table functions, and even table functions like OPENROWSET and OPENXML.
 the USING clause returns a table result, and that table result is used as the source for the MERGE statement.
 */
 
---Regarding the second run of the code, notice that it’s a waste to issue an UPDATE action when the source and target rows are completely identical
+--Regarding the second run of the code, notice that itâ€™s a waste to issue an UPDATE action when the source and target rows are completely identical
 --You can add a predicate that says that at least one of the nonkey column values in the source and the target must be different in order to apply the UPDATE action
 DECLARE @orderid	AS INT	= 1,
 		@custid		AS INT	= 1,
@@ -158,7 +158,7 @@ When checking whether the target column value is different than the source colum
 the preceding MERGE statement uses a simple inequality operator (<>). In this example,
 neither the target nor the source columns can be NULL. But if NULLs are possible in the
 data, you need to add logic to deal with those, and consider a case when one side is NULL
-and the other isn’t as true. For example, say the custid column allowed NULLs. You would
+and the other isnâ€™t as true. For example, say the custid column allowed NULLs. You would
 use the following predicate.
 */
 
@@ -173,7 +173,7 @@ and DELETE.
 
 For example, suppose that you want to add such a clause to the last example to
 indicate that if a target row exists and it is not matched by a source row, you want to delete
-the target row. Here’s how your MERGE statement would look (this time using a table variable
+the target row. Hereâ€™s how your MERGE statement would look (this time using a table variable
 with multiple orders as the source).
 */
 select * from sales.MyOrders;
@@ -210,5 +210,5 @@ select * from sales.MyOrders;
 --So the statement inserted the three rows with order IDs 2, 3, and 4, and deleted the row that had order ID 1 Query the current state of the table
 
 --What are the possible actions in the WHEN MATCHED clause? UPDATE and DELETE.
---How many WHEN MATCHED clauses can a single MERGE statement have? Two—one with an UPDATE action and one with a DELETE action.
+--How many WHEN MATCHED clauses can a single MERGE statement have? Twoâ€”one with an UPDATE action and one with a DELETE action.
 --389 (421 / 738)
